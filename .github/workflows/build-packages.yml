@@ -39,7 +39,7 @@ jobs:
       id: run_build
       run: |
          cd flex/
-         sudo python${{ matrix.python_version }} flex_setup.py -download-exit 
+         sudo python3 flex_setup.py -download-exit 
          #cp -r /opt/dist jans-src/opt/
          #cp -r /opt/jans jans-src/opt/
          #touch jans-src/opt/jans/jans-setup/package
