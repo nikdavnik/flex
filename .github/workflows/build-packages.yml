@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        name: [ubuntu20, el8, suse15]
+        name: [ubuntu20]
 
         include:
           - name: ubuntu20
