@@ -41,7 +41,7 @@ jobs:
     - name: Getting build dependencies
       id: get_dependencies
       run: |      
-         git clone -b flex https://github.com/GluuFederation/packaging
+         git clone -b jans https://github.com/GluuFederation/packaging
          mkdir -p flex/flex-src/opt/
          cp -rp packaging/${{ matrix.build_files }}/* flex/
          curl https://raw.githubusercontent.com/GluuFederation/flex/main/flex-linux-setup/flex_linux_setup/flex_setup.py > flex/flex_setup.py
