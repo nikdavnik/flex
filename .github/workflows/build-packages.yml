@@ -21,7 +21,7 @@ jobs:
             asset_prefix: '_'
             asset_path: jans
             sign_cmd: dpkg-sig -s builder -k DE92BEF14A1A4E542F678B64DC3C790386C73900
-            python_version: 3.10.4
+            python_version: "3.10"
 
     steps:
     - name: Getting build dependencies
