@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        name: [ubuntu20]
+        name: [ubuntu20, el8, suse15]
 
         include:
           - name: ubuntu20
@@ -22,6 +22,20 @@ jobs:
             asset_path: flex
             sign_cmd: dpkg-sig -s builder -k DE92BEF14A1A4E542F678B64DC3C790386C73900
             python_version: "3.10.4"
+          - name: el8
+            asset_suffix: .el8.x86_64.rpm
+            build_files: rpm/el8
+            asset_prefix: '-'
+            asset_path: flex/rpmbuild/RPMS/x86_64
+            sign_cmd: rpm --addsign
+            python_version: "3.10.4"
+          - name: suse15
+            asset_suffix: .suse15.x86_64.rpm
+            build_files: rpm/suse15
+            asset_prefix: '-'
+            asset_path: flex/rpmbuild/RPMS/x86_64
+            sign_cmd: rpm --addsign
+            python_version: "3.10.4"            
 
     steps:
     - name: Getting build dependencies
