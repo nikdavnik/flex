@@ -55,7 +55,7 @@ jobs:
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: ${{github.workspace}}/${{ matrix.asset_path }}/flex${{ matrix.asset_prefix }}1.0.3${{ matrix.asset_suffix }}
-        asset_name: jans${{ matrix.asset_prefix }}1.0.3${{ matrix.asset_suffix }}
+        asset_name: flex${{ matrix.asset_prefix }}1.0.3${{ matrix.asset_suffix }}
         tag: 1.0.3
   
         
