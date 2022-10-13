@@ -53,7 +53,7 @@ jobs:
       id: run_build
       run: |
          cd flex/
-         sudo python3 --version
+         sudo python3.6 --version
          sudo python3 flex_setup.py -download-exit 
          cp -r /opt/dist flex-src/opt/
          cp -r /opt/jans flex-src/opt/
