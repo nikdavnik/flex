@@ -28,14 +28,14 @@ jobs:
             asset_prefix: '-'
             asset_path: flex/rpmbuild/RPMS/x86_64
             sign_cmd: rpm --addsign
-            python_version: "3.6.8"
+            python_version: "3.6"
           - name: suse15
             asset_suffix: suse15.x86_64.rpm
             build_files: rpm/suse15
             asset_prefix: '-'
             asset_path: flex/rpmbuild/RPMS/x86_64
             sign_cmd: rpm --addsign
-            python_version: "3.6.8"            
+            python_version: "3.6"            
 
     steps:
     - name: Getting build dependencies
@@ -53,6 +53,7 @@ jobs:
       id: run_build
       run: |
          cd flex/
+         sudo python3 --version
          sudo python3 flex_setup.py -download-exit 
          cp -r /opt/dist flex-src/opt/
          cp -r /opt/jans flex-src/opt/
