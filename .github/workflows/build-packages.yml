@@ -55,11 +55,9 @@ jobs:
          cd flex/
          if [ "${{ matrix.name }}" == "ubuntu20" ]; then
            sudo python3 --version
-           sudo apt-cache show python3.6
            sudo python3 flex_setup.py -download-exit 
          else
            sudo python3.6 --version
-           sudo apt-cache show python3.6
            sudo python3.6 flex_setup.py -download-exit 
          fi  
          cp -r /opt/dist flex-src/opt/
