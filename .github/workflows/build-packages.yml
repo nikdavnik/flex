@@ -49,7 +49,7 @@ jobs:
          sudo apt-get update
          sudo apt-get install -y python${{ matrix.python_version }}
          sudo apt install -y build-essential devscripts debhelper rpm dpkg-sig python3-ldap3 python3-requests python3-ruamel.yaml python3-pymysql python3-crypto python${{ matrix.python_version }}-distutils python3-prompt-toolkit python3-psycopg2
-         sudo python${{ matrix.python_version }} -m pip${{ matrix.python_version }} install psycopg2
+         sudo cp -r /usr/lib/python3/dist-packages /usr/lib/python${{ matrix.python_version }}/
     - name: Running install and build
       id: run_build
       run: |
