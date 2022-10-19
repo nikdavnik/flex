@@ -55,13 +55,7 @@ jobs:
       id: run_build
       run: |
          cd flex/
-         if [ "${{ matrix.name }}" == "ubuntu20" ]; then
-           sudo python3 --version
-           sudo python3 flex_setup.py -download-exit 
-         else
-           sudo python3.6 --version
-           sudo python3.6 flex_setup.py -download-exit 
-         fi  
+         sudo python${{ matrix.python_version }} flex_setup.py -download-exit 
          cp -r /opt/dist flex-src/opt/
          cp -r /opt/jans flex-src/opt/
          touch flex-src/opt/jans/jans-setup/package
