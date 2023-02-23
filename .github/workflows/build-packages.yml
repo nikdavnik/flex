@@ -12,9 +12,16 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        name: [ubuntu20, el8, suse15]
+        name: [ubuntu22, ubuntu20, el8, suse15]
 
         include:
+          - name: ubuntu22
+            asset_suffix: ubuntu22.04_amd64.deb
+            build_files: deb/jammy
+            asset_prefix: '_'
+            asset_path: flex
+            sign_cmd: dpkg-sig -s builder -k DE92BEF14A1A4E542F678B64DC3C790386C73900
+            python_version: "3.8"                
           - name: ubuntu20
             asset_suffix: ubuntu20.04_amd64.deb
             build_files: deb/focal
@@ -67,7 +74,7 @@ jobs:
          sudo ./run-build.sh
     - name: "Set asset name env"
       run: |
-        if [ "${{ matrix.name }}" == "ubuntu20" ]; then
+        if [ "${{ matrix.name }}" == "ubuntu20" ] || [ "${{ matrix.name }}" == "ubuntu22" ]; then
           echo "ASSET_PRESUFFIX=~" >> $GITHUB_ENV  
         elif echo "1.0.3" | grep "-"; then
           echo "ASSET_PRESUFFIX=." >> $GITHUB_ENV
@@ -83,4 +90,10 @@ jobs:
         asset_name: flex${{ matrix.asset_prefix }}1.0.3${{ env.ASSET_PRESUFFIX }}${{ matrix.asset_suffix }}
         tag: 1.0.3
   
-        
+       
+
+
+
+
+
+
